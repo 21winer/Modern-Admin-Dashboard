@@ -21,7 +21,7 @@ export const salesData: SaleData[] = [
     {
         name: 'Maison',
         value: 200,
-        color: '#a855f7' // Pourpre
+        color: '#25ff14' // Vert
     },
     {
         name: 'Nourriture',
@@ -74,6 +74,20 @@ function SaleChart() {
                         />
                     </PieChart>
                 </ResponsiveContainer>
+            </div>
+            {/* Section des détails en bas */}
+            <div className="mt-6">
+                <div className="flex flex-col space-y-2 text-sm text-slate-600 dark:text-slate-400">
+                    {salesData.map((item, index) => (
+                        <div key={index} className="flex justify-between items-center">
+                            <div className="flex items-center space-x-2">
+                                <div className="w-3 h-3 rounded-full" style={{ backgroundColor: item.color }}></div>
+                                <span>{item.name}</span>
+                            </div>
+                            <span>{item.value}%</span>
+                        </div>
+                    ))}
+                </div>
             </div>
         </div>
     )
