@@ -1,7 +1,7 @@
 import { SearchNormal1 } from "iconsax-reactjs"
 import { BellDot, Filter, Mail, Menu, Moon, Sun } from "lucide-react"
 
-function Header({ onMenuClick, onThemeToggle, id = 0 }: { onMenuClick: () => void, onThemeToggle: () => void, id?: number }) {
+function Header({ onMenuClick, onThemeToggle, isDark, id = 0 }: { onMenuClick: () => void, onThemeToggle: () => void, isDark?: boolean, id?: number }) {
   return (
     <header className='bg-white/80 dark:bg-slate-900/80 shadow-sm backdrop-blur-xl border-b border-gray-200 px-6 py-3'>
       <div className='flex items-center justify-between'>
@@ -69,10 +69,16 @@ function Header({ onMenuClick, onThemeToggle, id = 0 }: { onMenuClick: () => voi
           </div>
 
           {/* Bouton de basculement du mode sombre */}
-          <button onClick={onThemeToggle} className="p-2 rounded-xl text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
-            {/* Condition pour changer l'icône */}
-            <Sun className="w-5 h-5 dark:hidden"/>
-            <Moon className="w-5 h-5 hidden dark:block"/>
+          <button onClick={() => { console.log('Header: theme toggle clicked'); onThemeToggle(); }} aria-pressed={isDark ? true : false} aria-label={isDark ? 'Activer le mode clair' : 'Activer le mode sombre'} className="p-2 rounded-xl text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+            {/* Show icon based on prop if provided, fallback to CSS-based visibility */}
+            {typeof isDark !== 'undefined' ? (
+              isDark ? <Moon className="w-5 h-5"/> : <Sun className="w-5 h-5"/>
+            ) : (
+              <>
+                <Sun className="w-5 h-5 dark:hidden"/>
+                <Moon className="w-5 h-5 hidden dark:block"/>
+              </>
+            )}
           </button>
         </div>
       </div>
