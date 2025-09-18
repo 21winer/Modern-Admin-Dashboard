@@ -1,9 +1,9 @@
-import ActivityFeed from "./ActivityFeed"
-import ChartSection from "./ChartSection"
-import StatsGrid from "./StatsGrid"
-import TableSection from "./TableSection"
+import ActivityFeed from '@/components/dashboard/ActivityFeed'
+import ChartSection from '@/components/dashboard/ChartSection'
+import StatsGrid from '@/components/dashboard/StatsGrid'
+import TableSection from '@/components/dashboard/TableSection'
 
-function Dashboard() {
+function DashboardPage() {
   return (
     <div className="space-y-6">
       {/* grille de statistiques */}
@@ -23,4 +23,4 @@ function Dashboard() {
   )
 }
 
-export default Dashboard
+export default DashboardPage

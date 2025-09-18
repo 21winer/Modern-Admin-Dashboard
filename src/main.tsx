@@ -1,11 +1,10 @@
 // main.tsx
-import { StrictMode, useState, useEffect } from 'react';
+import { StrictMode, useState, useEffect, lazy, Suspense } from 'react';
 import { createRoot } from 'react-dom/client';
 import './index.css';
-import Header from '@/components/layouts/Header';
-import Sidebar from '@/components/layouts/Sidebar';
-import Dashboard from '@/components/Dashboard/Dashboard';
-import { menuItems } from '@/components/layouts/Sidebar';
+import { LoadingSpinner } from '@/components/ui';
+import { Header, Sidebar, menuItems } from '@/components/layouts';
+const Dashboard = lazy(() => import('@/pages/DashboardPage'));
 
 function AppLayout() {
   const [sidebarCollapse, setSidebarCollapse] = useState(false);
@@ -50,9 +49,13 @@ function AppLayout() {
       <div className="flex flex-col flex-1">
         <Header onMenuClick={toggleCollapse} onThemeToggle={toggleDarkMode} />
         <main className="flex-1 overflow-y-auto bg-transparent">
-          <div className='p-6 space-y-6'>
-            {currentPage === "dashboard" && <Dashboard />}
-          </div>
+            <div className='p-6 space-y-6'>
+              {currentPage === "dashboard" && (
+                  <Suspense fallback={<LoadingSpinner size={36} />}>
+                  <Dashboard />
+                </Suspense>
+              )}
+            </div>
         </main>
       </div>
     </div>
