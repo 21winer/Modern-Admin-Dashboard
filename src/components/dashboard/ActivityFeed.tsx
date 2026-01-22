@@ -82,12 +82,12 @@ function ActivityFeed() {
                     <p className="text-sm text-slate-500 dark:text-slate-400">Système d'activités récents</p>
                 </div>
                 <button className="text-blue-500 hover:text-blue-700">Voir Tout</button>
-            </div>
+            </div> 
             <div className="p-6">
                 <div className="space-y-4">
                     {activity.map((item) => {
                         return (
-                            <div className="flex items-start space-x-4 p-3 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+                            <div key={item.id} className="flex items-start space-x-4 p-3 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
                                 <div className={`p-2 rounded-lg ${item.bgColor}`}>
                                     <item.icon className={`w-4 h-4 ${item.color}`}/>
                                 </div>

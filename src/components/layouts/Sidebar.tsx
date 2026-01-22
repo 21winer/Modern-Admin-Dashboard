@@ -82,7 +82,7 @@ export const menuItems: MenuItem[] = [
     label: 'Rapport'
   }
 ]
-function Sidebar({ sidebarCollapse, currentPage, handlePageChange }: { sidebarCollapse: boolean, currentPage: string, handlePageChange : (id:string)=>void}) {
+function Sidebar({ sidebarCollapse, currentPage, handlePageChange, onSettingsClick, onLogoutClick }: { sidebarCollapse: boolean, currentPage: string, handlePageChange : (id:string)=>void, onSettingsClick: () => void, onLogoutClick: () => void}) {
   const [openSubMenu, setOpenSubMenu] = useState<string | null>(null)
   const ToggleSubMenu = (id: string) => {
     setOpenSubMenu(openSubMenu === id ? null : id)
@@ -97,7 +97,7 @@ function Sidebar({ sidebarCollapse, currentPage, handlePageChange }: { sidebarCo
         </button>
         {!sidebarCollapse && (
           <h1 className="text-xl font-bold text-slate-800 dark:text-white">
-            Coursue
+            Win-Dashboard
           </h1>
         )}
       </div>
