@@ -109,7 +109,7 @@ function UsersTable() {
         <table className="w-full">
           <thead className="bg-slate-50 dark:bg-slate-800/50">
             <tr>
-              <th className="px-6 py-4 text-left text-xs font-semibold text-slate-600 dark:text-slate-300 uppercase tracking-wider">
+              <th className="px-4 md:px-6 py-4 text-left text-xs font-semibold text-slate-600 dark:text-slate-300 uppercase tracking-wider">
                 Utilisateur
               </th>
               <th className="px-6 py-4 text-left text-xs font-semibold text-slate-600 dark:text-slate-300 uppercase tracking-wider hidden md:table-cell">
@@ -121,10 +121,10 @@ function UsersTable() {
               <th className="px-6 py-4 text-left text-xs font-semibold text-slate-600 dark:text-slate-300 uppercase tracking-wider hidden xl:table-cell">
                 Dernière Activité
               </th>
-              <th className="px-6 py-4 text-left text-xs font-semibold text-slate-600 dark:text-slate-300 uppercase tracking-wider">
+              <th className="px-6 py-4 text-left text-xs font-semibold text-slate-600 dark:text-slate-300 uppercase tracking-wider hidden sm:table-cell">
                 Statut
               </th>
-              <th className="px-6 py-4 text-right text-xs font-semibold text-slate-600 dark:text-slate-300 uppercase tracking-wider">
+              <th className="px-4 md:px-6 py-4 text-right text-xs font-semibold text-slate-600 dark:text-slate-300 uppercase tracking-wider">
                 Actions
               </th>
             </tr>
@@ -137,18 +137,18 @@ function UsersTable() {
                   key={user.id}
                   className="hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors"
                 >
-                  <td className="px-6 py-4">
+                  <td className="px-4 md:px-6 py-4">
                     <div className="flex items-center space-x-3">
-                      <div className="w-10 h-10 rounded-full bg-gradient-to-r from-blue-500 to-purple-600 flex items-center justify-center text-white font-semibold flex-shrink-0">
+                      <div className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-gradient-to-r from-blue-500 to-purple-600 flex items-center justify-center text-white font-semibold flex-shrink-0 text-xs md:text-sm">
                         {user.avatar}
                       </div>
                       <div className="min-w-0">
-                        <p className="text-sm font-semibold text-slate-800 dark:text-white truncate">
+                        <p className="text-sm font-semibold text-slate-800 dark:text-white truncate max-w-[100px] sm:max-w-none">
                           {user.name}
                         </p>
-                        <p className="text-xs text-slate-500 dark:text-slate-400 flex items-center space-x-1 truncate">
+                        <p className="text-xs text-slate-500 dark:text-slate-400 flex items-center space-x-1 truncate max-w-[100px] sm:max-w-none">
                           <Mail className="w-3 h-3 flex-shrink-0" />
-                          <span>{user.email}</span>
+                          <span className="truncate">{user.email}</span>
                         </p>
                       </div>
                     </div>
@@ -169,7 +169,7 @@ function UsersTable() {
                       {user.lastActive}
                     </span>
                   </td>
-                  <td className="px-6 py-4">
+                  <td className="px-6 py-4 hidden sm:table-cell">
                     <span className={`inline-flex px-2 py-1 rounded-full text-xs font-medium ${
                       user.status === "active"
                         ? "bg-emerald-100 text-emerald-600 dark:bg-emerald-900/30 dark:text-emerald-500"
@@ -178,7 +178,7 @@ function UsersTable() {
                       {user.status === "active" ? "Actif" : "Inactif"}
                     </span>
                   </td>
-                  <td className="px-6 py-4 text-right">
+                  <td className="px-4 md:px-6 py-4 text-right">
                     <button className="p-2 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg transition-colors">
                       <MoreVertical className="w-4 h-4 text-slate-600 dark:text-slate-400" />
                     </button>

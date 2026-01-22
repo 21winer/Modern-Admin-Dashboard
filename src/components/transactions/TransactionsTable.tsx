@@ -116,13 +116,13 @@ function TransactionsTable() {
         <table className="w-full">
           <thead className="bg-slate-50 dark:bg-slate-800/50">
             <tr>
-              <th className="px-6 py-4 text-left text-xs font-semibold text-slate-600 dark:text-slate-300 uppercase tracking-wider">
+              <th className="px-4 md:px-6 py-4 text-left text-xs font-semibold text-slate-600 dark:text-slate-300 uppercase tracking-wider">
                 Transaction ID
               </th>
               <th className="px-6 py-4 text-left text-xs font-semibold text-slate-600 dark:text-slate-300 uppercase tracking-wider hidden md:table-cell">
                 Client
               </th>
-              <th className="px-6 py-4 text-left text-xs font-semibold text-slate-600 dark:text-slate-300 uppercase tracking-wider">
+              <th className="px-4 md:px-6 py-4 text-left text-xs font-semibold text-slate-600 dark:text-slate-300 uppercase tracking-wider">
                 Montant
               </th>
               <th className="px-6 py-4 text-left text-xs font-semibold text-slate-600 dark:text-slate-300 uppercase tracking-wider hidden lg:table-cell">
@@ -131,7 +131,7 @@ function TransactionsTable() {
               <th className="px-6 py-4 text-left text-xs font-semibold text-slate-600 dark:text-slate-300 uppercase tracking-wider hidden xl:table-cell">
                 Date & Heure
               </th>
-              <th className="px-6 py-4 text-left text-xs font-semibold text-slate-600 dark:text-slate-300 uppercase tracking-wider">
+              <th className="px-4 md:px-6 py-4 text-left text-xs font-semibold text-slate-600 dark:text-slate-300 uppercase tracking-wider">
                 Statut
               </th>
             </tr>
@@ -145,9 +145,13 @@ function TransactionsTable() {
                   key={transaction.id}
                   className="hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors"
                 >
-                  <td className="px-6 py-4">
-                    <span className="text-sm font-semibold text-slate-800 dark:text-white">
+                  <td className="px-4 md:px-6 py-4">
+                    <span className="text-sm font-semibold text-slate-800 dark:text-white block w-24 truncate">
                       {transaction.transactionId}
+                    </span>
+                    {/* Mobile only customer name */}
+                    <span className="md:hidden text-xs text-slate-500 dark:text-slate-400 block truncate w-24">
+                      {transaction.customer}
                     </span>
                   </td>
                   <td className="px-6 py-4 hidden md:table-cell">
@@ -155,7 +159,7 @@ function TransactionsTable() {
                       {transaction.customer}
                     </span>
                   </td>
-                  <td className="px-6 py-4">
+                  <td className="px-4 md:px-6 py-4">
                     <span className="text-sm font-medium text-slate-800 dark:text-white">
                       {transaction.amount}
                     </span>
@@ -175,10 +179,10 @@ function TransactionsTable() {
                       </p>
                     </div>
                   </td>
-                  <td className="px-6 py-4">
-                    <span className={`inline-flex items-center space-x-1 px-3 py-1 rounded-full text-xs font-medium ${statusConfig.className}`}>
-                      <StatusIcon className="w-3 h-3" />
-                      <span>{statusConfig.label}</span>
+                  <td className="px-4 md:px-6 py-4">
+                    <span className={`inline-flex items-center space-x-1 px-2.5 py-0.5 rounded-full text-xs font-medium ${statusConfig.className}`}>
+                      <StatusIcon className="w-3 h-3 flex-shrink-0" />
+                      <span className="hidden sm:inline">{statusConfig.label}</span>
                     </span>
                   </td>
                 </tr>

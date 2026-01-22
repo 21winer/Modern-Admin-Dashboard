@@ -39,9 +39,7 @@ function AppLayout() {
     setCurrentPage("settings");
   };
 
-  const handleLogoutClick = () => {
-    setShowLogoutModal(true);
-  };
+
 
   const handleLogout = () => {
     logout();

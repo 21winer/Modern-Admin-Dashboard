@@ -87,10 +87,10 @@ function TopPagesTable() {
         <table className="w-full">
           <thead className="bg-slate-50 dark:bg-slate-800/50">
             <tr>
-              <th className="px-6 py-4 text-left text-xs font-semibold text-slate-600 dark:text-slate-300 uppercase tracking-wider">
+              <th className="px-4 md:px-6 py-4 text-left text-xs font-semibold text-slate-600 dark:text-slate-300 uppercase tracking-wider">
                 Page
               </th>
-              <th className="px-6 py-4 text-left text-xs font-semibold text-slate-600 dark:text-slate-300 uppercase tracking-wider hidden md:table-cell">
+              <th className="px-4 md:px-6 py-4 text-left text-xs font-semibold text-slate-600 dark:text-slate-300 uppercase tracking-wider hidden sm:table-cell">
                 Vues
               </th>
               <th className="px-6 py-4 text-left text-xs font-semibold text-slate-600 dark:text-slate-300 uppercase tracking-wider hidden lg:table-cell">
@@ -99,7 +99,7 @@ function TopPagesTable() {
               <th className="px-6 py-4 text-left text-xs font-semibold text-slate-600 dark:text-slate-300 uppercase tracking-wider hidden xl:table-cell">
                 Taux de Rebond
               </th>
-              <th className="px-6 py-4 text-left text-xs font-semibold text-slate-600 dark:text-slate-300 uppercase tracking-wider">
+              <th className="px-4 md:px-6 py-4 text-left text-xs font-semibold text-slate-600 dark:text-slate-300 uppercase tracking-wider hidden md:table-cell">
                 Tendance
               </th>
             </tr>
@@ -110,20 +110,20 @@ function TopPagesTable() {
                 key={page.id}
                 className="hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors"
               >
-                <td className="px-6 py-4">
+                <td className="px-4 md:px-6 py-4">
                   <div className="flex items-center space-x-3">
-                    <div>
-                      <p className="text-sm font-semibold text-slate-800 dark:text-white">
+                    <div className="min-w-0">
+                      <p className="text-sm font-semibold text-slate-800 dark:text-white truncate max-w-[150px] sm:max-w-none">
                         {page.page}
                       </p>
-                      <p className="text-xs text-slate-500 dark:text-slate-400 flex items-center space-x-1">
-                        <span>{page.path}</span>
-                        <ExternalLink className="w-3 h-3" />
+                      <p className="text-xs text-slate-500 dark:text-slate-400 flex items-center space-x-1 truncate max-w-[150px] sm:max-w-none">
+                        <span className="truncate">{page.path}</span>
+                        <ExternalLink className="w-3 h-3 flex-shrink-0" />
                       </p>
                     </div>
                   </div>
                 </td>
-                <td className="px-6 py-4 hidden md:table-cell">
+                <td className="px-4 md:px-6 py-4 hidden sm:table-cell">
                   <span className="text-sm font-medium text-slate-800 dark:text-white">
                     {page.views}
                   </span>
@@ -138,7 +138,7 @@ function TopPagesTable() {
                     {page.bounceRate}
                   </span>
                 </td>
-                <td className="px-6 py-4">
+                <td className="px-4 md:px-6 py-4 hidden md:table-cell">
                   <div className="flex items-center space-x-2">
                     {page.trend === "up" ? (
                       <TrendingUp className="w-4 h-4 text-emerald-500" />
