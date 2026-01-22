@@ -144,7 +144,7 @@ function Sidebar({ sidebarCollapse, currentPage, handlePageChange }: { sidebarCo
               </button>
 
               {/* Sub Menus */}
-              {item.submenu && openSubMenu === item.id && (
+              {item.submenu && openSubMenu === item.id && !sidebarCollapse && (
                 <div className="ml-8 mt-2 space-y-1">
                   {item.submenu.map((subItem) => (
                     <a
