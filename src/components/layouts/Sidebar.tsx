@@ -1,4 +1,4 @@
-import { BarChart3, Calendar1, ChevronDown, CreditCard, FileText, LayoutDashboard, LogOut, LucideShoppingBag, MessageSquare, Package, Settings, Sparkle, Users } from "lucide-react"
+import { BarChart3, Calendar1, ChevronDown, CreditCard, FileText, LayoutDashboard, LucideShoppingBag, MessageSquare, Package, Sparkle, Users } from "lucide-react"
 import type { LucideIcon } from "lucide-react"
 import { useState } from "react"
 
@@ -82,13 +82,13 @@ export const menuItems: MenuItem[] = [
     label: 'Rapport'
   }
 ]
-function Sidebar({ sidebarCollapse, currentPage, handlePageChange, onSettingsClick, onLogoutClick }: { sidebarCollapse: boolean, currentPage: string, handlePageChange : (id:string)=>void, onSettingsClick: () => void, onLogoutClick: () => void}) {
+function Sidebar({ sidebarCollapse, currentPage, handlePageChange }: { sidebarCollapse: boolean, currentPage: string, handlePageChange : (id:string)=>void}) {
   const [openSubMenu, setOpenSubMenu] = useState<string | null>(null)
   const ToggleSubMenu = (id: string) => {
     setOpenSubMenu(openSubMenu === id ? null : id)
   }  
   return (
-    <div className={`${sidebarCollapse ? "w-20" : "w-72"} h-screen transition duration-300 ease-in-out bg-white/80 dark:bg-slate-900/80 border-r border-slate-200/50 dark:border-b-slate-700/50 backdrop-blur-xl flex flex-col justify-between relative z-10`}>
+    <div className={`${sidebarCollapse ? "w-20" : "w-72"} h-screen transition duration-300 ease-in-out bg-white/80 dark:bg-slate-900/80 border-r border-slate-200/50 dark:border-b-slate-700/50 backdrop-blur-xl flex flex-col justify-between relative z-40`}>
 
       {/* Logo en haut */}
       <div className="p-6 flex items-center space-x-3">
@@ -162,27 +162,6 @@ function Sidebar({ sidebarCollapse, currentPage, handlePageChange, onSettingsCli
         }
         )}
       </nav>
-
-      {/* Paramètres en bas */}
-      <div className="p-5 flex flex-col space-y-2 border-t border-slate-400/50 shadow-lg bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl transition-transform duration-200">
-        {!sidebarCollapse && (
-          <h2 className="text-slate-600 dark:text-white/45 text-sm">PARAMÈTRES</h2>
-        )}
-        <div className="flex flex-col">
-          <div className="flex p-3 space-x-3 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800/50 rounded-xl">
-            <Settings className="w-5 h-5 text-slate-900 dark:text-white" />
-            {!sidebarCollapse && (
-              <button className="font-medium text-sm text-slate-900 dark:text-white transition-all duration-200">Paramètre</button>
-            )}
-          </div>
-          <div className="flex space-x-3 p-3 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800/50 rounded-xl transition-all duration-200">
-            <LogOut className="w-5 h-5 text-amber-700 dark:text-amber-600" />
-            {!sidebarCollapse && (
-              <button className="font-medium text-sm text-amber-700 dark:text-amber-600">Déconnexion</button>
-            )}
-          </div>
-        </div>
-      </div>
     </div>
   )
 }

@@ -1,4 +1,4 @@
-import { UserRole } from '@/lib/UserContext'
+import type { UserRole } from '@/lib/UserContext'
 
 interface UserStatusProps {
   role: UserRole

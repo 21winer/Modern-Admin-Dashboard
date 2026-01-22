@@ -54,7 +54,7 @@ function UserMenu({ onSettingsClick, onLogoutClick }: UserMenuProps) {
 
       {/* Dropdown menu */}
       {isOpen && (
-        <div className="absolute right-0 mt-2 w-64 bg-white dark:bg-slate-900 rounded-xl shadow-xl border border-slate-200 dark:border-slate-700 overflow-hidden z-50">
+        <div className="absolute right-0 mt-2 w-64 bg-white dark:bg-slate-900 rounded-xl shadow-xl border border-slate-200 dark:border-slate-700 overflow-hidden z-[100]">
           {/* User info */}
           <div className="p-4 border-b border-slate-200 dark:border-slate-700">
             <p className="text-sm font-semibold text-slate-800 dark:text-white">

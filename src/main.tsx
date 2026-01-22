@@ -57,10 +57,8 @@ function AppLayout() {
         sidebarCollapse={sidebarCollapse} 
         currentPage={currentPage}
         handlePageChange={handlePageChange}
-        onSettingsClick={handleSettingsClick}
-        onLogoutClick={handleLogoutClick}
       />
-      <div className="flex flex-col flex-1">
+      <div className="flex flex-col flex-1 min-w-0">
         <Header 
           onMenuClick={toggleCollapse} 
           onThemeToggle={toggle} 
@@ -68,7 +66,7 @@ function AppLayout() {
           isDark={isDark} 
         />
         <main className="flex-1 overflow-y-auto bg-transparent">
-            <div className='p-6 space-y-6'>
+            <div className='p-3 sm:p-4 lg:p-6 space-y-4 lg:space-y-6'>
               {currentPage === "dashboard" && (
                 <Suspense fallback={<LoadingSpinner size={36} />}>
                   <Dashboard />

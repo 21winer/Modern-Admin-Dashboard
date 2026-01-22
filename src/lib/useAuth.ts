@@ -5,7 +5,7 @@ export function useAuth() {
   const { user, setUser } = useUser()
   const [isLoading, setIsLoading] = useState(false)
 
-  const login = async (email: string, password: string) => {
+  const login = async (email: string, _password: string) => {
     setIsLoading(true)
     // Simuler une requête API
     await new Promise(resolve => setTimeout(resolve, 1000))
